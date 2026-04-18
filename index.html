@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camila Block - Puzzle de Blocos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Home -->
+        <div id="homeScreen" class="screen active">
+            <div class="home-content">
+                <div class="game-title">
+                    <h1>Camila Block</h1>
+                    <p class="subtitle">Um puzzle de blocos intenso, brilhante e feito com um toque romântico para a Camila.</p>
+                </div>
+                
+                <div class="stats-preview">
+                    <div class="stat-box">
+                        <span class="stat-label">MELHOR PONTUAÇÃO</span>
+                        <span class="stat-value" id="bestScoreHome">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">NÍVEL MÁXIMO</span>
+                        <span class="stat-value" id="maxLevelHome">1</span>
+                    </div>
+                </div>
+
+                <div class="how-to-play">
+                    <h2>Como o jogo vai funcionar</h2>
+                    <p>Você escolhe uma peça, toca no tabuleiro para encaixar e precisa limpar linhas e colunas para sobreviver. O jogo já começa difícil e segue aumentando a pressão enquanto sua pontuação cresce.</p>
+                </div>
+
+                <button class="btn btn-primary" onclick="startGame()">Jogar agora</button>
+                <button class="btn btn-secondary" onclick="showRecords()">Ver recordes</button>
+            </div>
+        </div>
+
+        <!-- Tela de Jogo -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="header-left">
+                    <button class="btn-small" onclick="pauseGame()">⏸ Pausar</button>
+                </div>
+                <div class="header-center">
+                    <div class="score-display">
+                        <span class="label">PONTUAÇÃO</span>
+                        <span class="value" id="currentScore">0</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="level-display">
+                        <span class="label">NÍVEL</span>
+                        <span class="value" id="currentLevel">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="game-board" id="gameBoard"></div>
+                <div class="piece-tray" id="pieceTray"></div>
+            </div>
+
+            <div class="love-message" id="loveMessage"></div>
+        </div>
+
+        <!-- Tela de Pausa -->
+        <div id="pauseScreen" class="screen">
+            <div class="pause-overlay">
+                <div class="pause-content">
+                    <h2>Jogo Pausado</h2>
+                    <p>Pontuação: <span id="pauseScore">0</span></p>
+                    <p>Nível: <span id="pauseLevel">1</span></p>
+                    <button class="btn btn-primary" onclick="resumeGame()">Continuar</button>
+                    <button class="btn btn-secondary" onclick="goHome()">Voltar ao Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Fim de Jogo -->
+        <div id="gameOverScreen" class="screen">
+            <div class="game-over-content">
+                <h2>Fim de Jogo!</h2>
+                <p class="final-score">Pontuação Final: <span id="finalScore">0</span></p>
+                <p class="final-level">Nível Alcançado: <span id="finalLevel">1</span></p>
+                
+                <div class="game-over-message">
+                    <p id="gameOverMessage"></p>
+                </div>
+
+                <button class="btn btn-primary" onclick="startGame()">Jogar Novamente</button>
+                <button class="btn btn-secondary" onclick="goHome()">Menu Principal</button>
+            </div>
+        </div>
+
+        <!-- Tela de Recordes -->
+        <div id="recordsScreen" class="screen">
+            <div class="records-content">
+                <h2>Recordes</h2>
+                <div class="records-list" id="recordsList"></div>
+                <button class="btn btn-secondary" onclick="goHome()">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game-engine.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
